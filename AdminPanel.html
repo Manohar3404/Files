@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .nav-link.active {
+      font-weight: bold;
+      color: #0d6efd !important;
+    }
+    .welcome-section {
+      text-align: center;
+      background: #f8f9fa;
+      padding: 50px 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .icon-card {
+      text-align: center;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .icon-card i {
+      font-size: 40px;
+      color: #0d6efd;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section with Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Admin Panel</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Manage Events</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Volunteers</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Feedback</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Welcome Section -->
+  <div class="container mt-4">
+    <div class="welcome-section">
+      <h1>Welcome, Admin!</h1>
+      <p class="lead">Manage your platform efficiently and effortlessly from this dashboard.</p>
+      <button class="btn btn-primary mt-3">Get Started</button>
+    </div>
+
+    <!-- Icon Cards Section -->
+    <div class="row mt-5">
+      <div class="col-md-4">
+        <div class="icon-card">
+          <i class="bi bi-calendar-event"></i>
+          <h4 class="mt-3">Manage Events</h4>
+          <p>Access and manage all events.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="icon-card">
+          <i class="bi bi-people"></i>
+          <h4 class="mt-3">Volunteers</h4>
+          <p>Track and manage volunteers.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="icon-card">
+          <i class="bi bi-chat-dots"></i>
+          <h4 class="mt-3">Feedback</h4>
+          <p>View feedback from events.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
