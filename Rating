@@ -1,0 +1,104 @@
+@model FeedbackViewModel
+
+   <div class="container mt-4">
+       <h2>Feedback for @Model.VolunteerRegistrations.Event.Name</h2>
+       <form method="post" asp-action="AddFeedback" asp-controller="Feedback">
+           <div class="form-group d-flex align-items-center">
+               <label asp-for="@Model.Feedback.Rating" class="mr-3">Rating:</label>
+               <div class="rating">
+                   @for (int i = 5; i >= 1; i--)
+                   {
+                       <input value="@i" name="Rating" id="star@i" type="radio" @(Model.Feedback.Rating == i ? "checked" : "") />
+                       <label title="Rate @i stars" for="star@i">&#9733;</label>
+                   }
+               </div>
+           </div>
+           <div class="form-group">
+               <label asp-for="@Model.Feedback.FeedbackText">Your Feedback:</label>
+               <textarea asp-for="@Model.Feedback.FeedbackText" class="form-control" rows="5" placeholder="Write your feedback here..."></textarea>
+               <span asp-validation-for="@Model.Feedback.FeedbackText" class="text-danger"></span>
+           </div>
+           <input type="hidden" asp-for="@Model.Feedback.VolunteerId" value="@Model.VolunteerRegistrations.VolunteerId" />
+           <input type="hidden" asp-for="@Model.Feedback.EventId" value="@Model.VolunteerRegistrations.EventId" />
+           <button type="submit" class="btn btn-primary mt-2">
+               @(Model.Feedback.FeedbackId != 0 ? "Update" : "Submit")
+           </button>
+       </form>
+   </div>
+<script>
+       document.addEventListener('DOMContentLoaded', function () {
+           const stars = document.querySelectorAll('.rating input');
+           stars.forEach(star => {
+               star.addEventListener('change', function () {
+                   alert(`You rated ${this.value} stars!`);
+               });
+           });
+       });
+   </script>
+<style>
+       .rating {
+           display: inline-block;
+           position: relative;
+           height: 50px;
+           line-height: 50px;
+           font-size: 50px;
+       }
+
+       .rating label {
+           position: absolute;
+           top: 0;
+           left: 0;
+           height: 100%;
+           cursor: pointer;
+       }
+
+       .rating label:last-child {
+           position: static;
+       }
+
+       .rating label:nth-child(1) {
+           z-index: 5;
+       }
+
+       .rating label:nth-child(2) {
+           z-index: 4;
+       }
+
+       .rating label:nth-child(3) {
+           z-index: 3;
+       }
+
+       .rating label:nth-child(4) {
+           z-index: 2;
+       }
+
+       .rating label:nth-child(5) {
+           z-index: 1;
+       }
+
+       .rating label input {
+           position: absolute;
+           top: 0;
+           left: 0;
+           opacity: 0;
+       }
+
+       .rating label .icon {
+           float: left;
+           color: transparent;
+       }
+
+       .rating label:last-child .icon {
+           color: #000;
+       }
+
+       .rating:not(:hover) label input:checked ~ .icon,
+       .rating:hover label:hover input ~ .icon {
+           color: #f90;
+       }
+
+       .rating label input:focus:not(:checked) ~ .icon:last-child {
+           color: #000;
+           text-shadow: 0 0 5px #f90;
+       }
+   </style>
